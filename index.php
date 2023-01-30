@@ -10,7 +10,6 @@
   </head>
   <body>
     <div class="container">
-      <h1>Room Climate</h1>
       <div class="climate-data">
         <div class="temperature">
           <h2>Temperature</h2>

@@ -268,9 +268,8 @@ ul {
 }
 
 .climate-data {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    justify-items: center;
 }
 
 .temperature,
@@ -281,8 +280,3 @@ ul {
     text-align: center;
 }
 
-@media (max-width: 600px) {
-    .climate-data {
-        flex-direction: column;
-    }
-}
