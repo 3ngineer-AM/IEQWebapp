@@ -13,14 +13,6 @@
     <nav class="navbar">
       <div class="nav-center">
         <!-- header -->
-        <div class="nav-header">
-          <a href="index.php" class="nav-logo">
-            <img src="./assets/" alt="IEQ">
-          </a>
-          <button type="button" class="btn nav-btn">
-            <i class="fas fa-align-justify"></i>
-          </button> 
-        </div>
         <!-- links -->
         <div class="nav-links">
           <a href="index.php" class="nav-link">home</a>
@@ -34,25 +26,16 @@
     <div class="container">
       <div class="climate-data">
         <div class="temperature">
-          <img src="./assets/temperature100.png" alt="thermometer" class="temperature_img">
-          <div>
-            <h2>Temperature</h2>
-            <div class="temperature_value" id="temperature_value"></div>
-          </div>
+          <h1>Temperature</h1>
+          <div class="temperature_value" id="temperature_value"></div>
         </div>
         <div class="pressure">
-          <img src="./assets/pressure100.png" alt="barometer" class="pressure_img">
-          <div>
-            <h2>Pressure</h2>
-            <div class="pressure_value" id="pressure_value"></div>
-          </div>
+          <h1>Pressure</h1>
+          <div class="pressure_value" id="pressure_value"></div>       
         </div>
-        <div class="humidity">
-          <img src="./assets/humidity100.png" alt="drop" class="humidity_img">
-          <div>
-            <h2>Humidity</h2>
-            <div class="humidity_value" id="humidity_value"></div>
-          </div>
+        <div class="humidity">     
+          <h1>Humidity</h1>
+          <div class="humidity_value" id="humidity_value"></div>
         </div>
       </div>
     </div>

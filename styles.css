@@ -373,7 +373,15 @@ Measurands
 .temperature,
 .pressure,
 .humidity {
-    display: flex;
-    padding: 20px;
+    display: block;
+    margin: 0 auto;
+    height: 50vh;
 }
 
+.temperature_value,
+.pressure_value,
+.humidity_value {
+    display: flex;
+    font-size: 1.953rem;
+    justify-content: center;
+}
