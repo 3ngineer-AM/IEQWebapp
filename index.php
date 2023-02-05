@@ -26,16 +26,19 @@
     <div class="container">
       <div class="climate-data">
         <div class="temperature">
-          <h1>Temperature</h1>
+          <h1 class="temperature_title">Temperature</h1>
           <div class="temperature_value" id="temperature_value"></div>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis, mollitia est pariatur quo quis non aliquid esse iusto cupiditate, dolore fuga quos labore. Corporis omnis cupiditate laudantium vero laboriosam ipsa.</p>
         </div>
         <div class="pressure">
-          <h1>Pressure</h1>
-          <div class="pressure_value" id="pressure_value"></div>       
+          <h1 class="pressure_title">Pressure</h1>
+          <div class="pressure_value" id="pressure_value"></div>  
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis, mollitia est pariatur quo quis non aliquid esse iusto cupiditate, dolore fuga quos labore. Corporis omnis cupiditate laudantium vero laboriosam ipsa.</p>     
         </div>
         <div class="humidity">     
-          <h1>Humidity</h1>
+          <h1 class="Humidity_title">Humidity</h1>
           <div class="humidity_value" id="humidity_value"></div>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis, mollitia est pariatur quo quis non aliquid esse iusto cupiditate, dolore fuga quos labore. Corporis omnis cupiditate laudantium vero laboriosam ipsa.</p>
         </div>
       </div>
     </div>
