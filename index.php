@@ -6,6 +6,7 @@
     <!-- normalize css -->
     <link rel="stylesheet" href="./normalize.css">
     <link rel="stylesheet" href="./styles.css">
+    <script src="https://kit.fontawesome.com/e14c9d9e40.js" crossorigin="anonymous"></script>
     <title>IEQ</title>
   </head>
   <body>
@@ -15,8 +16,17 @@
         <!-- header -->
         <!-- links -->
         <div class="nav-links">
+          <button class="link-buttons">
+            <i class="fa-solid fa-house"></i>
+          </button>
           <a href="index.php" class="nav-link">home</a>
+          <button class="link-buttons">
+            <i class="fa-solid fa-chart-line"></i>
+          </button>
           <a href="Graphs.html" class="nav-link">graphs</a>
+          <button class="link-buttons">
+            <i class="fa-solid fa-gear"></i>
+          </button>
           <a href="tags.html" class="nav-link">settings</a>
         </div>
       </div>
@@ -52,11 +62,11 @@
       .then((res) => res.json())
       .then((data) => {
           const temperature = document.getElementById("temperature_value");
-          temperature.textContent = JSON.stringify(data.temp_value);
+          temperature.textContent = data.temp_value + " °C";
           const pressure = document.getElementById("pressure_value");
-          pressure.textContent = JSON.stringify(data.pressure_value);
+          pressure.textContent = data.pressure_value + " Pa";
           const humidity = document.getElementById("humidity_value");
-          humidity.textContent = JSON.stringify(data.humid_value);
+          humidity.textContent = data.humid_value + " %";
       });
   }
   window.addEventListener('load', function () {
