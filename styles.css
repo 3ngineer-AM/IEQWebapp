@@ -397,13 +397,11 @@ Measurands
     margin-top: 1rem;
     border-radius: 1rem;
 }
-.temperature tr,
-.pressure tr,
-.humidity tr {
+tr {
     visibility: collapse;
     opacity: 0;
     margin: 0 auto;
-    transition: var(--transition);
+    transition: 0s ease-in-out all;
 }
 .card_value {
     display: flex;
@@ -424,9 +422,9 @@ Measurands
 .humidity:hover {
     width: 100%;
 }
-.temperature:hover *:not(tr,table),
-.pressure:hover *:not(tr,table),
-.humidity:hover *:not(tr,table) {
+.temperature:hover *:not(table, tbody, td, tr),
+.pressure:hover *:not(table, tbody, td, tr),
+.humidity:hover *:not(table, tbody, td, tr) {
     transform: translateX(30%);
 }
 .temperature:hover tr,
@@ -434,4 +432,5 @@ Measurands
 .humidity:hover tr {
     visibility: visible;
     opacity: 100%;
+    transition-duration: 0.5s;
 }

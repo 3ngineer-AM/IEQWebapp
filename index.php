@@ -49,12 +49,24 @@
         <div class="pressure">
           <h1 class="card_title">Pressure</h1>
           <div class="card_value" id="pressure_value"></div>  
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis, mollitia est pariatur quo quis non aliquid esse iusto cupiditate, dolore fuga quos labore. Corporis omnis cupiditate laudantium vero laboriosam ipsa.</p>     
+          <table>
+            <tbody>
+              <tr>
+                <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis, mollitia est pariatur quo quis non aliquid esse iusto cupiditate, dolore fuga quos labore. Corporis omnis cupiditate laudantium vero laboriosam ipsa.</td>
+              </tr>
+            </tbody>
+          </table>    
         </div>
         <div class="humidity">     
           <h1 class="card_title">Humidity</h1>
           <div class="card_value" id="humidity_value"></div>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis, mollitia est pariatur quo quis non aliquid esse iusto cupiditate, dolore fuga quos labore. Corporis omnis cupiditate laudantium vero laboriosam ipsa.</p>
+          <table>
+            <tbody>
+              <tr>
+                <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis, mollitia est pariatur quo quis non aliquid esse iusto cupiditate, dolore fuga quos labore. Corporis omnis cupiditate laudantium vero laboriosam ipsa.</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
