@@ -15,15 +15,15 @@ html {
 :root {
     /* Colors */
     /* primary */
-    --primary-100: #d2cfdc;
-    --primary-200: #a6a0b9;
-    --primary-300: #797096;
-    --primary-400: #4d4173;
-    --primary-500: #201150;
-    --primary-600: #1a0e40;
-    --primary-700: #130a30;
-    --primary-800: #0d0720;
-    --primary-900: #060310;
+    --primary-100: #ccd6e3;
+    --primary-200: #99aec7;
+    --primary-300: #6685ab;
+    --primary-400: #335d8f;
+    --primary-500: #003473;
+    --primary-600: #002a5c;
+    --primary-700: #001f45;
+    --primary-800: #00152e;
+    --primary-900: #000a17;
     /* grey */
     --grey-100: #f1f5f9;
     --grey-200: #e2e8f0;
@@ -52,7 +52,7 @@ html {
     --textColor: var(--grey-200);
     --borderRadius: 0.25rem;
     --letterSpacing: 1px;
-    --transition: 0.3s ease-in-out all;
+    --transition: 0.5s ease-in-out all;
     --max-width: 1120px;
     --fixed-width: 600px;
 
@@ -174,7 +174,7 @@ ul {
     transition: var(--transition);
 }
 .link-buttons:hover {
-    color: var(--primary-400);
+    color: var(--primary-500);
 }
 
 .alert {
@@ -318,7 +318,7 @@ Navbar
 }
 
 .nav-link:hover {
-    color: var(--primary-400);
+    color: var(--primary-500);
 }
 
 .contact-link a {
@@ -374,28 +374,35 @@ Measurands
 */
 
 .container {
+    pointer-events: none;
     width: 70%;
     margin: 0 auto;
 }
 
 .climate-data {
+    pointer-events: none;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    flex-direction: column;
     min-height: calc(100vh - (6rem));
 }
 
 .temperature,
 .pressure,
 .humidity {
+    pointer-events: auto;
     display: block;
-    background: var(--primary-600);
+    width: 30%;
+    background: var(--primary-700);
     margin: 0 auto;
     margin-top: 1rem;
     border-radius: 1rem;
-    width: 45%;
 }
-
+.temperature p,
+.pressure p,
+.humidity p {
+    display: none;
+    transition: var(--transition);
+}
 .temperature_value,
 .pressure_value,
 .humidity_value {
@@ -403,12 +410,29 @@ Measurands
     font-size: 1.953rem;
     justify-content: center;
     margin-bottom: 1rem;
+    transition: var(--transition);
 }
-
 .temperature_title,
 .pressure_title,
 .humidity_title {
     margin-top: 1rem;
     display: flex;
     justify-content: center;
+    transition: var(--transition);
+}
+
+.temperature:hover,
+.pressure:hover,
+.humidity:hover {
+    width: 70%;
+}
+.temperature:hover *,
+.pressure:hover *,
+.humidity:hover * {
+    transform: translateX(30%);
+}
+.temperature:hover p,
+.pressure:hover p,
+.humidity:hover p {
+    display: block;
 }
