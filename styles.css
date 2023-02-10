@@ -375,7 +375,7 @@ Measurands
 
 .container {
     pointer-events: none;
-    width: 70%;
+    width: 50%;
     margin: 0 auto;
 }
 
@@ -391,30 +391,28 @@ Measurands
 .humidity {
     pointer-events: auto;
     display: block;
-    width: 30%;
+    width: 50%;
     background: var(--primary-700);
     margin: 0 auto;
     margin-top: 1rem;
     border-radius: 1rem;
 }
-.temperature p,
-.pressure p,
-.humidity p {
-    display: none;
+.temperature tr,
+.pressure tr,
+.humidity tr {
+    visibility: collapse;
+    opacity: 0;
+    margin: 0 auto;
     transition: var(--transition);
 }
-.temperature_value,
-.pressure_value,
-.humidity_value {
+.card_value {
     display: flex;
     font-size: 1.953rem;
     justify-content: center;
     margin-bottom: 1rem;
     transition: var(--transition);
 }
-.temperature_title,
-.pressure_title,
-.humidity_title {
+.card_title {
     margin-top: 1rem;
     display: flex;
     justify-content: center;
@@ -424,15 +422,16 @@ Measurands
 .temperature:hover,
 .pressure:hover,
 .humidity:hover {
-    width: 70%;
+    width: 100%;
 }
-.temperature:hover *,
-.pressure:hover *,
-.humidity:hover * {
+.temperature:hover *:not(tr,table),
+.pressure:hover *:not(tr,table),
+.humidity:hover *:not(tr,table) {
     transform: translateX(30%);
 }
-.temperature:hover p,
-.pressure:hover p,
-.humidity:hover p {
-    display: block;
+.temperature:hover tr,
+.pressure:hover tr,
+.humidity:hover tr {
+    visibility: visible;
+    opacity: 100%;
 }

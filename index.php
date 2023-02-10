@@ -36,18 +36,24 @@
     <div class="container">
       <div class="climate-data">
         <div class="temperature">
-          <h1 class="temperature_title">Temperature</h1>
-          <div class="temperature_value" id="temperature_value"></div>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis, mollitia est pariatur quo quis non aliquid esse iusto cupiditate, dolore fuga quos labore. Corporis omnis cupiditate laudantium vero laboriosam ipsa.</p>
+          <h1 class="card_title">Temperature</h1>
+          <div class="card_value" id="temperature_value"></div>
+          <table>
+            <tbody>
+              <tr>
+                <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis, mollitia est pariatur quo quis non aliquid esse iusto cupiditate, dolore fuga quos labore. Corporis omnis cupiditate laudantium vero laboriosam ipsa.</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <div class="pressure">
-          <h1 class="pressure_title">Pressure</h1>
-          <div class="pressure_value" id="pressure_value"></div>  
+          <h1 class="card_title">Pressure</h1>
+          <div class="card_value" id="pressure_value"></div>  
           <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis, mollitia est pariatur quo quis non aliquid esse iusto cupiditate, dolore fuga quos labore. Corporis omnis cupiditate laudantium vero laboriosam ipsa.</p>     
         </div>
         <div class="humidity">     
-          <h1 class="Humidity_title">Humidity</h1>
-          <div class="humidity_value" id="humidity_value"></div>
+          <h1 class="card_title">Humidity</h1>
+          <div class="card_value" id="humidity_value"></div>
           <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis, mollitia est pariatur quo quis non aliquid esse iusto cupiditate, dolore fuga quos labore. Corporis omnis cupiditate laudantium vero laboriosam ipsa.</p>
         </div>
       </div>
