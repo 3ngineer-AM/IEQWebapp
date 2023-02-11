@@ -36,8 +36,19 @@
     <div class="container">
       <div class="climate-data">
         <div class="temperature">
-          <h1 class="card_title">Temperature</h1>
-          <div class="card_value" id="temperature_value"></div>
+          <div class="card">
+            <table class="rating">
+              <tbody>
+                <tr>
+                  <td>Rating</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="card-info">
+              <h1>Temperature</h1>
+              <div class="card_value" id="temperature_value"></div>
+            </div>
+          </div>
           <table>
             <tbody>
               <tr>
@@ -47,8 +58,19 @@
           </table>
         </div>
         <div class="pressure">
-          <h1 class="card_title">Pressure</h1>
-          <div class="card_value" id="pressure_value"></div>  
+          <div class="card">
+            <table class="rating">
+              <tbody>
+                <tr>
+                  <td>Rating</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="card-info">
+              <h1>Pressure</h1>
+              <div class="card_value" id="pressure_value"></div>  
+            </div>
+          </div>
           <table>
             <tbody>
               <tr>
@@ -57,9 +79,20 @@
             </tbody>
           </table>    
         </div>
-        <div class="humidity">     
-          <h1 class="card_title">Humidity</h1>
-          <div class="card_value" id="humidity_value"></div>
+        <div class="humidity">   
+          <div class="card">
+            <table class="rating">
+              <tbody>
+                <tr>
+                  <td>Rating</td>
+                </tr>
+              </tbody>
+            </table>  
+            <div class="card-info">
+              <h1>Humidity</h1>
+              <div class="card_value" id="humidity_value"></div>
+            </div>
+          </div>
           <table>
             <tbody>
               <tr>

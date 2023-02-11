@@ -52,7 +52,7 @@ html {
     --textColor: var(--grey-200);
     --borderRadius: 0.25rem;
     --letterSpacing: 1px;
-    --transition: 0.5s ease-in-out all;
+    --transition: 0.7s ease-in-out all;
     --max-width: 1120px;
     --fixed-width: 600px;
 
@@ -397,11 +397,30 @@ Measurands
     margin-top: 1rem;
     border-radius: 1rem;
 }
+table {
+    margin-bottom: 1rem;
+}
 tr {
     visibility: collapse;
     opacity: 0;
     margin: 0 auto;
     transition: 0s ease-in-out all;
+}
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.rating {
+    display: none;
+    visibility: collapse;
+    align-self: flex-start;
+    margin-top: 1rem;
+    font-size: 1.953rem;
+}
+.card-info {
+    flex-basis: 100%;
+    transition: var(--transition);
 }
 .card_value {
     display: flex;
@@ -410,7 +429,7 @@ tr {
     margin-bottom: 1rem;
     transition: var(--transition);
 }
-.card_title {
+.card-info h1 {
     margin-top: 1rem;
     display: flex;
     justify-content: center;
@@ -422,10 +441,17 @@ tr {
 .humidity:hover {
     width: 100%;
 }
-.temperature:hover *:not(table, tbody, td, tr),
-.pressure:hover *:not(table, tbody, td, tr),
-.humidity:hover *:not(table, tbody, td, tr) {
-    transform: translateX(30%);
+.temperature:hover .card-info,
+.pressure:hover .card-info,
+.humidity:hover .card-info {
+    flex-basis: 0%;
+}
+.temperature:hover .rating,
+.pressure:hover .rating,
+.humidity:hover .rating {
+    display: block;
+    visibility: visible;
+    flex-basis: 100%;
 }
 .temperature:hover tr,
 .pressure:hover tr,
