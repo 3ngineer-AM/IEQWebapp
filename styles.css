@@ -6,7 +6,7 @@
 
 /* fonts */
 @import url('https://fonts.googleapis.com/css?family=Karla:400|Spectral:400');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400');
+@import url('https://fonts.googleapis.com/css?family=Poppins:400');
 
 html {
     font-size: 100%;
@@ -43,7 +43,7 @@ html {
     --green-dark: #0f5132;
 
     /* Fonts */
-    --headingFont: 'Open Sans', sans-serif;
+    --headingFont: 'Poppins', sans-serif;
     --bodyFont: 'Karla', sans-serif;
     --smallText: 0.7em;
 
@@ -52,7 +52,9 @@ html {
     --textColor: var(--grey-200);
     --borderRadius: 0.25rem;
     --letterSpacing: 1px;
-    --transition: 0.7s ease-in-out all;
+    --transitionfast: 0.3s ease-in-out all;
+    --transitionslow: 0.5s ease-in-out all;
+    --transition-delay: 500ms;
     --max-width: 1120px;
     --fixed-width: 600px;
 
@@ -141,7 +143,7 @@ ul {
     letter-spacing: var(--letterSpacing);
     padding: 0.375rem 0.75rem;
     box-shadow: var(--shadow-1);
-    transition: var(--transition);
+    transition: var(--transitionfast);
     text-transform: capitalize;
     display: inline-block;
 }
@@ -171,7 +173,7 @@ ul {
     cursor: pointer;
     border: none;
     padding: 0.375rem 0.75rem;
-    transition: var(--transition);
+    transition: var(--transitionfast);
 }
 .link-buttons:hover {
     color: var(--primary-500);
@@ -299,7 +301,7 @@ Navbar
     height: 0;
     justify-content: center;
     overflow: hidden;
-    transition: var(--transition);
+    transition: var(--transitionfast);
 }
 
 .show-links {
@@ -314,7 +316,7 @@ Navbar
     letter-spacing: var(--letterSpacing);
     padding: 1rem 0;
     border-top: 1px solid var(--grey-500);
-    transition: var(--transition);
+    transition: var(--transitionfast);
 }
 
 .nav-link:hover {
@@ -383,6 +385,7 @@ Measurands
     pointer-events: none;
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
     min-height: calc(100vh - (6rem));
 }
 
@@ -394,46 +397,46 @@ Measurands
     width: 50%;
     background: var(--primary-700);
     margin: 0 auto;
-    margin-top: 1rem;
     border-radius: 1rem;
-}
-table {
-    margin-bottom: 1rem;
-}
-tr {
-    visibility: collapse;
-    opacity: 0;
-    margin: 0 auto;
-    transition: 0s ease-in-out all;
+    transition: var(--transitionslow);
 }
 .card {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+table {
+    margin-bottom: 1rem;
+}
+tr {
+    visibility: collapse;
+    margin: 0 auto;
+    opacity: 0;
+    transition: none;
+}
 .rating {
     display: none;
-    visibility: collapse;
     align-self: flex-start;
     margin-top: 1rem;
-    font-size: 1.953rem;
+}
+.rating h1{
+    display: flex;
+    justify-content: center;
+    transition: var(--transitionslow);
 }
 .card-info {
-    flex-basis: 100%;
-    transition: var(--transition);
+    transition: var(--transitionslow);
 }
 .card_value {
     display: flex;
     font-size: 1.953rem;
     justify-content: center;
     margin-bottom: 1rem;
-    transition: var(--transition);
 }
 .card-info h1 {
     margin-top: 1rem;
     display: flex;
     justify-content: center;
-    transition: var(--transition);
 }
 
 .temperature:hover,
@@ -444,19 +447,62 @@ tr {
 .temperature:hover .card-info,
 .pressure:hover .card-info,
 .humidity:hover .card-info {
-    flex-basis: 0%;
+    margin-right: 1rem;
+    transition: var(--transitionslow);
 }
 .temperature:hover .rating,
 .pressure:hover .rating,
 .humidity:hover .rating {
     display: block;
-    visibility: visible;
     flex-basis: 100%;
+    animation: fade-animation 1s forwards;
 }
 .temperature:hover tr,
 .pressure:hover tr,
 .humidity:hover tr {
     visibility: visible;
     opacity: 100%;
-    transition-duration: 0.5s;
+    transition: var(--transitionslow);
+    transition-delay: 0.5s;
+}
+@keyframes fade-animation {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 100%;
+    }
+}
+
+/*
+=============== 
+Progress Bar
+===============
+*/
+
+.progress-container{
+    height: 10px;
+    width: 0%;
+    border-radius: 1.5rem;
+    background-color: var(--grey-200);
+    margin: 0 auto;
+    margin-top: 1.5rem;
+}
+.temperature:hover .progress-container,
+.pressure:hover .progress-container,
+.humidity:hover .progress-container  {
+    width: 70%;
+}
+
+.progress-bar {
+    height: 100%;
+    border-radius: 1.5rem;
+    background-color: orangered;
+    animation: progress-animation 3s forwards;
+}
+
+@keyframes progress-animation {
+    0% {width: 0%;}
+    100% {width: 75%;}
 }

@@ -37,13 +37,12 @@
       <div class="climate-data">
         <div class="temperature">
           <div class="card">
-            <table class="rating">
-              <tbody>
-                <tr>
-                  <td>Rating</td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="rating">
+              <h1>Rating</h1>
+              <div class="progress-container">
+                <div class="progress-bar"></div>
+              </div>
+            </div>
             <div class="card-info">
               <h1>Temperature</h1>
               <div class="card_value" id="temperature_value"></div>
@@ -52,20 +51,19 @@
           <table>
             <tbody>
               <tr>
-                <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis, mollitia est pariatur quo quis non aliquid esse iusto cupiditate, dolore fuga quos labore. Corporis omnis cupiditate laudantium vero laboriosam ipsa.</td>
+                <td>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste veniam sed eos temporibus quisquam similique tempora aspernatur provident ab animi nisi reiciendis doloremque quo, excepturi nesciunt mollitia non in aut.</td>
               </tr>
             </tbody>
           </table>
         </div>
         <div class="pressure">
           <div class="card">
-            <table class="rating">
-              <tbody>
-                <tr>
-                  <td>Rating</td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="rating">
+              <h1>Rating</h1>
+              <div class="progress-container">
+                <div class="progress-bar"></div>
+              </div>
+            </div>
             <div class="card-info">
               <h1>Pressure</h1>
               <div class="card_value" id="pressure_value"></div>  
@@ -74,20 +72,19 @@
           <table>
             <tbody>
               <tr>
-                <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis, mollitia est pariatur quo quis non aliquid esse iusto cupiditate, dolore fuga quos labore. Corporis omnis cupiditate laudantium vero laboriosam ipsa.</td>
+                <td>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum a quidem et explicabo sint error, optio, quam eius dolorem autem vitae atque odit provident harum! Error saepe cumque sunt adipisci?</td>
               </tr>
             </tbody>
           </table>    
         </div>
         <div class="humidity">   
           <div class="card">
-            <table class="rating">
-              <tbody>
-                <tr>
-                  <td>Rating</td>
-                </tr>
-              </tbody>
-            </table>  
+            <div class="rating">
+              <h1>Rating</h1>
+              <div class="progress-container">
+                <div class="progress-bar"></div>
+              </div>
+            </div> 
             <div class="card-info">
               <h1>Humidity</h1>
               <div class="card_value" id="humidity_value"></div>
@@ -96,7 +93,7 @@
           <table>
             <tbody>
               <tr>
-                <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis, mollitia est pariatur quo quis non aliquid esse iusto cupiditate, dolore fuga quos labore. Corporis omnis cupiditate laudantium vero laboriosam ipsa.</td>
+                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, temporibus! Eum alias commodi aspernatur explicabo similique perferendis dicta natus labore qui est laboriosam voluptate provident saepe, nemo nisi dolores fugiat.</td>
               </tr>
             </tbody>
           </table>
