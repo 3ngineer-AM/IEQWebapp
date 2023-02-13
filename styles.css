@@ -281,7 +281,7 @@ Navbar
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 70%;
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -293,7 +293,7 @@ Navbar
 .nav-header {
     height: 6rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: right;
     align-items: center;
 }
 
@@ -310,9 +310,14 @@ Navbar
     overflow: hidden;
     transition: var(--transitionfast);
 }
+.links{
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid var(--grey-500);
+}
 
 .show-links {
-    height: 310px;
+    height: 200px;
 }
 
 .nav-link {
@@ -322,7 +327,6 @@ Navbar
     color: var(--grey-900);
     letter-spacing: var(--letterSpacing);
     padding: 1rem 0;
-    border-top: 1px solid var(--grey-500);
     transition: var(--transitionfast);
 }
 
@@ -337,8 +341,9 @@ Navbar
 @media screen and (min-width:992px) {
     .nav-btn {
         display: none;
+        margin-left: auto;
+        margin-right: 0;
     }
-
     .navbar {
         height: 6rem;
     }
@@ -354,25 +359,23 @@ Navbar
     }
 
     /* since links wont show if the button is not toggled because height is set to 0 in the nav-links class, we fix that by modifying that below */
+    .links{
+        /* width: 100%; */
+        align-items: center;
+        border-top: none;
+    }
     .nav-links {
         height: auto;
         flex-direction: row;
         align-items: center;
         /* nav-center has empty space on the right, we want the nav-links to occupy that space so we do: */
         width: 100%;
-
     }
-
     .nav-link {
         padding: 0;
         border-top: none;
         margin-right: 1rem;
         font-size: 1rem;
-    }
-
-    .contact-link {
-        /* to place contact link on the right do: */
-        margin-left: auto;
     }
 }
 
@@ -384,7 +387,7 @@ Measurands
 
 .container {
     pointer-events: none;
-    width: 50%;
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -401,7 +404,7 @@ Measurands
 .humidity {
     pointer-events: auto;
     display: block;
-    width: 50%;
+    width: 80%;
     background: var(--primary-700);
     margin: 0 auto;
     border-radius: 1rem;
@@ -449,7 +452,7 @@ tr {
 .temperature:hover,
 .pressure:hover,
 .humidity:hover {
-    width: 100%;
+    width: 90%;
 }
 .temperature:hover .card-info,
 .pressure:hover .card-info,
@@ -479,6 +482,20 @@ tr {
 
     100% {
         opacity: 100%;
+    }
+}
+
+@media screen and (min-width:992px) {
+    .navbar{
+        width: 50%;
+    }
+    .container{
+        width: 50%;
+    }
+    .temperature,
+    .pressure,
+    .humidity {
+        width: 50%;
     }
 }
 
