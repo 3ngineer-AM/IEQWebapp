@@ -13,3 +13,11 @@ const navBtnDOM = getElement('.nav-btn')
 navBtnDOM.addEventListener('click', () => {
   links.classList.toggle('show-links')
 })
+
+const myDivs = document.querySelectorAll('.temperature, .pressure, .humidity');
+
+myDivs.forEach((myDiv) => {
+  myDiv.addEventListener('click', () => {
+    myDiv.classList.toggle('active');
+  });
+});

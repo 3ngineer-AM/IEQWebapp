@@ -338,7 +338,7 @@ Navbar
     padding: 0.15rem 1rem;
 }
 
-@media screen and (min-width:992px) {
+@media screen and (min-width:768px) {
     .nav-btn {
         display: none;
         margin-left: auto;
@@ -404,9 +404,10 @@ Measurands
 .humidity {
     pointer-events: auto;
     display: block;
-    width: 80%;
+    width: 90%;
     background: var(--primary-700);
     margin: 0 auto;
+    margin-bottom: 2px;
     border-radius: 1rem;
     transition: var(--transitionslow);
 }
@@ -414,20 +415,21 @@ Measurands
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 table {
     margin-bottom: 1rem;
 }
 tr {
-    visibility: collapse;
+    display: none;
     margin: 0 auto;
     opacity: 0;
     transition: none;
 }
 .rating {
     display: none;
-    align-self: flex-start;
     margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 .rating h1{
     display: flex;
@@ -449,32 +451,34 @@ tr {
     justify-content: center;
 }
 
-.temperature:hover,
-.pressure:hover,
-.humidity:hover {
-    width: 90%;
+.temperature.active,
+.pressure.active,
+.humidity.active {
+    width: 90%; /*This is kept even tho default is already 90% because desktop utilizes click expand to 90%*/
+
 }
-.temperature:hover .card-info,
-.pressure:hover .card-info,
-.humidity:hover .card-info {
-    margin-right: 1rem;
+.temperature.active .card-info,
+.pressure.active .card-info,
+.humidity.active .card-info {
     transition: var(--transitionslow);
 }
-.temperature:hover .rating,
-.pressure:hover .rating,
-.humidity:hover .rating {
+.temperature.active .rating,
+.pressure.active .rating,
+.humidity.active .rating {
     display: block;
     flex-basis: 100%;
-    animation: fade-animation 1s forwards;
 }
-.temperature:hover tr,
-.pressure:hover tr,
-.humidity:hover tr {
-    visibility: visible;
+.temperature.active tr,
+.pressure.active tr,
+.humidity.active tr {
+    display: table-row;
+    visibility: visible; /*visiblity is set to visible when both hovering and clicking
+    but display is only set to table-row when clicking because desktop display is set to table-row to perserve transition*/
     opacity: 100%;
     transition: var(--transitionslow);
     transition-delay: 0.6s;
 }
+
 @keyframes fade-animation {
     0% {
         opacity: 0;
@@ -485,19 +489,6 @@ tr {
     }
 }
 
-@media screen and (min-width:992px) {
-    .navbar{
-        width: 50%;
-    }
-    .container{
-        width: 50%;
-    }
-    .temperature,
-    .pressure,
-    .humidity {
-        width: 50%;
-    }
-}
 
 /*
 =============== 
@@ -511,12 +502,11 @@ Progress Bar
     border-radius: 1.5rem;
     background-color: var(--grey-200);
     margin: 0 auto;
-    margin-top: 1.5rem;
 }
-.temperature:hover .progress-container,
-.pressure:hover .progress-container,
-.humidity:hover .progress-container  {
-    width: 70%;
+.temperature:hover .progress-container, .temperature.active .progress-container,
+.pressure:hover .progress-container, .pressure.active .progress-container,
+.humidity:hover .progress-container, .humidity.active .progress-container  {
+    width: 100%;
 }
 
 .progress-bar {
@@ -534,5 +524,92 @@ Progress Bar
     100% {
         width: calc(var(--temp_rating)*10%);
         background-color: var(--bar-color);
+    }
+}
+
+@media screen and (min-width:768px) {
+    .navbar {
+        width: 50%;
+    }
+
+    .container {
+        width: 50%;
+    }
+
+    .card {
+        flex-direction: row;
+    }
+
+    .temperature,
+    .pressure,
+    .humidity {
+        width: 50%;
+    }
+
+    .rating {
+        align-self: flex-start;
+        margin-bottom: 0;
+    }
+
+    tr {
+        display: table-row;
+        visibility: collapse;
+    }
+
+    .temperature:hover,
+    .pressure:hover,
+    .humidity:hover {
+        width: 90%;
+    }
+
+    .temperature:hover .card-info,
+    .pressure:hover .card-info,
+    .humidity:hover .card-info {
+        margin-right: 1rem;
+        transition: var(--transitionslow);
+    }
+
+    .temperature.active .card-info,
+    .pressure.active .card-info,
+    .humidity.active .card-info {
+        margin-right: 1rem;
+        transition: var(--transitionslow);
+    }
+
+    .temperature:hover .rating,
+    .pressure:hover .rating,
+    .humidity:hover .rating {
+        display: block;
+        flex-basis: 100%;
+        animation: fade-animation 1s forwards;
+    }
+    .temperature.active .rating,
+    .pressure.active .rating,
+    .humidity.active .rating {
+        animation: fade-animation 1s forwards;
+    }
+    .temperature:hover tr,
+    .pressure:hover tr,
+    .humidity:hover tr {
+        visibility: visible;
+        /*visiblity is set to visible when both hovering and clicking
+        but display is only set to table-row when clicking because desktop display is set to table-row to perserve transition*/
+        opacity: 100%;
+        transition: var(--transitionslow);
+        transition-delay: 0.6s;
+    }
+
+    .progress-bar {
+        margin-top: 1.5rem;
+        margin-bottom: 0;
+    }
+
+    .temperature:hover .progress-container,
+    .temperature.active .progress-container,
+    .pressure:hover .progress-container,
+    .pressure.active .progress-container,
+    .humidity:hover .progress-container,
+    .humidity.active .progress-container {
+        width: 70%;
     }
 }
