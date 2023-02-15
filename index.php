@@ -47,6 +47,7 @@
     <div class="container">
       <div class="climate-data">
         <div class="temperature">
+          <i class="temp-warning fa-solid fa-triangle-exclamation"></i>
           <div class="card">
             <div class="rating">
               <h1>Rating</h1>
@@ -69,6 +70,7 @@
           </table>
         </div>
         <div class="pressure">
+          <i class="press-warning fa-solid fa-triangle-exclamation"></i>
           <div class="card">
             <div class="rating">
               <h1>Rating</h1>
@@ -90,7 +92,8 @@
             </tbody>
           </table>    
         </div>
-        <div class="humidity">   
+        <div class="humidity">
+          <i class="humid-warning fa-solid fa-triangle-exclamation"></i>
           <div class="card">
             <div class="rating">
               <h1>Rating</h1>

@@ -334,11 +334,7 @@ Navbar
     color: var(--primary-500);
 }
 
-.contact-link a {
-    padding: 0.15rem 1rem;
-}
-
-@media screen and (min-width:768px) {
+@media screen and (min-width:992px) {
     .nav-btn {
         display: none;
         margin-left: auto;
@@ -410,6 +406,13 @@ Measurands
     margin-bottom: 2px;
     border-radius: 1rem;
     transition: var(--transitionslow);
+}
+.temp-warning,
+.press-warning,
+.humid-warning {
+    pointer-events: none;
+    color: var(--bar-color);
+    transform: translate(-1.1rem, 0.5rem);
 }
 .card {
     display: flex;
@@ -527,19 +530,21 @@ Progress Bar
     }
 }
 
-@media screen and (min-width:768px) {
+@media screen and (min-width:992px) {
     .navbar {
         width: 50%;
     }
-
     .container {
         width: 50%;
     }
-
     .card {
         flex-direction: row;
     }
-
+    .temp-warning,
+    .press-warning,
+    .humid-warning {
+        transform: translate(-2rem, 0.5rem);
+    }
     .temperature,
     .pressure,
     .humidity {
