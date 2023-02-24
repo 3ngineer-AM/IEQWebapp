@@ -153,11 +153,6 @@ ul {
     display: inline-block;
 }
 
-.btn:hover {
-    background: var(--primary-700);
-    box-shadow: var(--shadow-3);
-}
-
 .btn-hipster {
     color: var(--primary-500);
     background: var(--primary-200);
@@ -181,7 +176,7 @@ ul {
     transition: var(--transitionfast);
 }
 .link-buttons:hover {
-    color: var(--primary-500);
+    color: var(--grey-600);
 }
 
 .alert {
@@ -329,7 +324,7 @@ Navbar
 }
 
 .nav-link:hover {
-    color: var(--primary-500);
+    color: var(--grey-600);
 }
 
 @media screen and (min-width:992px) {
@@ -389,7 +384,7 @@ Measurands
     pointer-events: none;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between;
     min-height: calc(100vh - (6rem));
 }
 
@@ -401,8 +396,8 @@ Measurands
     width: 90%;
     background: var(--grey-200);
     margin: 0 auto;
-    margin-bottom: 0.5rem;
-    border-radius: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 2rem;
     box-shadow: 0 4px 0 #141414;
     border-style: solid;
     border-color: rgb(20 20 20);
@@ -423,12 +418,16 @@ Measurands
 }
 table {
     margin-bottom: 1rem;
+    margin-top: 0.5rem;
 }
 tr {
     display: none;
     margin: 0 auto;
     opacity: 0;
     transition: none;
+}
+td {
+    text-align: center;
 }
 .rating {
     display: none;
@@ -447,7 +446,6 @@ tr {
     display: flex;
     font-size: 1.953rem;
     justify-content: center;
-    margin-bottom: 1rem;
 }
 .card-info h1 {
     margin-top: 1rem;
@@ -622,4 +620,22 @@ Progress Bar
     .humidity.active .progress-container {
         width: 70%;
     }
+}
+
+/*
+=============== 
+Graphs
+===============
+*/
+.graphs {
+    position: relative;
+    width: 100vw;
+    height: 50vh;
+}
+
+#temp-graph {
+    width: 33%;
+    height: 100%;
+    top: 0;
+    left: 0;
 }
