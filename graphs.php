@@ -47,7 +47,7 @@
 
       <!-- start of Graphs -->
       <div class="graphs">
-        <svg class="graph" id="temp-graph"></svg>
+        <div class="graph" id="temp-graph"></div>
         <!-- <svg class="graph" id="press-graph"></svg> -->
         <!-- <svg class="graph" id="humid-graph"></svg> -->
       </div> 
@@ -55,7 +55,7 @@
   
 
       <!-- Javascript -->
-      <script src="https://d3js.org/d3.v4.js"></script>
+      <script src="https://code.jscharting.com/3.0.0/jscharting.js"></script>
       <script src="charts.js"></script>
       <script src="navLinks.js"></script>
     </body>
