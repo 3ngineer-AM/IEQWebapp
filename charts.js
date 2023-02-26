@@ -1,50 +1,56 @@
-var chartData = [ { x: new Date(2023, 1, 1, 0, 0, 0), y: 100 },
-        { x: new Date(2023, 1, 1, 4, 0, 0), y: 150 },
-        { x: new Date(2023, 1, 1, 8, 0, 0), y: 200 },
-        { x: new Date(2023, 1, 1, 12, 0, 0), y: 250 },
-        { x: new Date(2023, 1, 1, 16, 0, 0), y: 300 },
-        { x: new Date(2023, 1, 1, 20, 0, 0), y: 350 }];
-var chart = JSC.Chart('temp-graph', {
-   type: 'line',
-   series: [{
-    name: 'Data',
-    points: chartData
-  }],
-  xAxis: {
-    type: 'dateTime',
-    scale: {
-      type: 'dateTime',
-      date: '1900-01-01',
-      // min: new Date(0, 0, 0, 0, 0, 0),
-      max: new Date(0, 0, 0, 23, 59, 0),
-      tickSpacing: 50,
-      visible: true
-    },
-    formatString: 'HH:mm'
-  },
-  yAxis: {
-    visible: true
-  },
-  ticks: {
-    interval: 120
-  },
-  legend: {
-    visible: false
-  }
-});
+const chart = Highcharts.chart('temp-graph', {
 
+  yAxis: {
+    title: {
+      text: 'Temperature'
+    }
+  },
+
+  xAxis: {
+    type: 'datetime',
+    tickInterval: 1 * 60 * 1000,
+  },
+
+  legend: {
+    enable: false
+  },
+
+  plotOptions: {
+    series: {
+    }
+  },
+
+  series: [{
+    name: 'time'
+  }],
+
+  responsive: {
+    rules: [{
+      condition: {
+        maxWidth: 500
+      },
+    }]
+  }
+
+});
 function fetchData() {
   // Retrieving json array from query.php
   fetch("http://10.0.0.200:8080/query.php") 
     .then((res) => res.json())
     .then((data) => {
-      var newDataPoint = { x: data.time, y: +data.temp_value };
-      chart.series(0).points.add(newDataPoint);
+      const dateTime = data.time;
+      const [date, timeStr] = dateTime.split(' ');
+      let [year, month, day] = date.split('-');
+      month -= 1;
+      const [hours, minutes, seconds] = timeStr.split(':');
+      const utcValue = Date.UTC(year, month, day, hours, minutes, seconds);
+      chart.xAxis[0].setExtremes(Date.UTC(year, month, day, 0, 0, 0), Date.UTC(year, month, day, 23, 59, 0));
+      chart.series[0].addPoint([utcValue, Math.floor((Math.random() * 25) + 20)]);
     });
 }
 
 window.addEventListener('load', function () {
   // Your document is loaded.
   var fetchInterval = 2000; // 2 seconds.
-  // setInterval(fetchData, fetchInterval);
+  setInterval(fetchData, fetchInterval);
 });

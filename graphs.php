@@ -55,7 +55,7 @@
   
 
       <!-- Javascript -->
-      <script src="https://code.jscharting.com/3.0.0/jscharting.js"></script>
+      <script src="https://code.highcharts.com/highcharts.js"></script>
       <script src="charts.js"></script>
       <script src="navLinks.js"></script>
     </body>
