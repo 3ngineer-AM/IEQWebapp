@@ -1,6 +1,6 @@
 function fetchData() {
   // Retrieving json array from query.php
-    fetch("http://10.0.0.200:8080/query.php") 
+    fetch("https://og09ieq.ngrok.io/query.php") 
       .then((res) => res.json())
       .then((data) => {
 

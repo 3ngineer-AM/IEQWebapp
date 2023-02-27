@@ -408,7 +408,7 @@ Measurands
 .humid-warning {
     pointer-events: none;
     color: var(--bar-color);
-    transform: translate(-1.1rem, 0.5rem);
+    transform: translate(0.7rem, 0.7rem);
 }
 .card {
     display: flex;
@@ -542,11 +542,6 @@ Progress Bar
     .card {
         flex-direction: row;
     }
-    .temp-warning,
-    .press-warning,
-    .humid-warning {
-        transform: translate(-2rem, 0.5rem);
-    }
     .temperature,
     .pressure,
     .humidity {
@@ -628,11 +623,16 @@ Graphs
 ===============
 */
 .graphs {
-    width: 33vw;
-    height: 50vh;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    width: 100vw;
+    height: 40vh;
 }
 
-#temp-graph {
-    width: 100%;
+.graph {
+    width: 45%;
     height: 100%;
+    margin-top: 1rem;
 }

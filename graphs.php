@@ -48,8 +48,8 @@
       <!-- start of Graphs -->
       <div class="graphs">
         <div class="graph" id="temp-graph"></div>
-        <!-- <svg class="graph" id="press-graph"></svg> -->
-        <!-- <svg class="graph" id="humid-graph"></svg> -->
+        <div class="graph" id="press-graph"></div>
+        <div class="graph" id="humid-graph"></div>
       </div> 
       <!-- end of Graphs -->
   
