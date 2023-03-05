@@ -5,7 +5,11 @@
 }
 
 /* fonts */
-@import url('https://fonts.googleapis.com/css?family=Karla:400|Spectral:400|Cabin:400');
+@font-face {
+    font-family: "Poppins";
+    src: url('fonts/Poppins-Regular.ttf') format('truetype');
+}
+
 html {
     font-size: 100%;
 }
@@ -45,8 +49,8 @@ html {
     --yellow-med: #FFB833;
 
     /* Fonts */
-    --headingFont: 'Cabin', sans-serif;
-    --bodyFont: 'Karla', sans-serif;
+    --headingFont: 'Poppins', sans-serif;
+    --bodyFont: 'Poppins', sans-serif;
     --smallText: 0.7em;
 
     /* Vars */
@@ -128,7 +132,7 @@ a {
 }
 
 ul {
-    list-style-type: nine;
+    list-style-type: none;
     padding: 0;
 }
 
@@ -628,11 +632,40 @@ Graphs
     align-items: center;
     justify-content: space-around;
     width: 100vw;
-    height: 40vh;
+    height: calc(50vh - (5rem));
 }
-
-.graph {
+.graph-container{
     width: 45%;
     height: 100%;
-    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+.graph {
+    width: 100%;
+    height: 100%;
+}
+.graph-buttons{
+    display: flex;
+    justify-content: center;
+}
+
+.temp-graph-btn,
+.press-graph-btn,
+.humid-graph-btn {
+    cursor: pointer;
+    color: var(--black);
+    background: var(--grey-100);
+    border: transparent;
+    border-radius: var(--borderRadius);
+    letter-spacing: var(--letterSpacing);
+    padding: 0.25rem 0.25rem;
+    margin: 0 0.5rem;
+    box-shadow: var(--shadow-1);
+    transition: var(--transitionfast);
+    text-transform: capitalize;
+    display: inline-block;    
+}
+.temp-graph-btn.active,
+.press-graph-btn.active,
+.humid-graph-btn.active {
+    background-color: var(--grey-300);
 }

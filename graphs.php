@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -47,9 +47,27 @@
 
       <!-- start of Graphs -->
       <div class="graphs">
-        <div class="graph" id="temp-graph"></div>
-        <div class="graph" id="press-graph"></div>
-        <div class="graph" id="humid-graph"></div>
+        <div class="graph-container">
+          <div class="graph" id="temp-graph"></div>
+          <div class="graph-buttons">
+            <button type="button" class="temp-graph-btn active" id='temp-day-btn'>1D</button> 
+            <button type="button" class="temp-graph-btn" id='temp-hour-btn'>1H</button> 
+          </div>
+        </div>
+        <div class="graph-container">
+          <div class="graph" id="press-graph"></div>
+          <div class="graph-buttons">
+            <button type="button" class="press-graph-btn active" id='press-day-btn'>1D</button> 
+            <button type="button" class="press-graph-btn" id='press-hour-btn'>1H</button> 
+          </div>
+        </div> 
+        <div class="graph-container">
+          <div class="graph" id="humid-graph"></div>
+          <div class="graph-buttons">
+            <button type="button" class="humid-graph-btn active" id='humid-day-btn'>1D</button> 
+            <button type="button" class="humid-graph-btn" id='humid-hour-btn'>1H</button> 
+          </div>
+        </div> 
       </div> 
       <!-- end of Graphs -->
   
