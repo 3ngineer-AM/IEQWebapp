@@ -24,13 +24,6 @@ const tempChart = Highcharts.chart('temp-graph', {
     name: 'time'
   }],
 
-  responsive: {
-    rules: [{
-      condition: {
-        maxWidth: 500
-      },
-    }]
-  }
 });
 
 const pressChart = Highcharts.chart('press-graph', {
@@ -42,7 +35,7 @@ const pressChart = Highcharts.chart('press-graph', {
   },
   yAxis: {
     min: 950,
-    max: 1100,
+    max: 1050,
     title: {
       text: 'Pressure'
     }
@@ -58,14 +51,6 @@ const pressChart = Highcharts.chart('press-graph', {
   series: [{
     name: 'time'
   }],
-
-  responsive: {
-    rules: [{
-      condition: {
-        maxWidth: 500
-      },
-    }]
-  }
 });
 
 const humidChart = Highcharts.chart('humid-graph', {
@@ -94,13 +79,6 @@ const humidChart = Highcharts.chart('humid-graph', {
     name: 'time'
   }],
 
-  responsive: {
-    rules: [{
-      condition: {
-        maxWidth: 500
-      },
-    }]
-  }
 });
 
 let tempmin = 0;
@@ -109,9 +87,42 @@ let pressmin = 0;
 let pressmax = 23;
 let humidmin = 0;
 let humidmax = 23;
+
+function fetchTable(){
+  fetch('http://og09ieq.ngrok.io/fullquery.php')
+    .then((res) => res.json())
+    .then((data) => {
+      let timearr = data.timearr;
+      let temparr = data.temparr;
+      let pressarr = data.pressarr;
+      let humidarr = data.humidarr;
+
+      const processedTime = timearr.map((dateTime) => {
+        const [date, timeStr] = dateTime.split(' ');
+        let [year, month, day] = date.split('-');
+        month -= 1;
+        const [hours, minutes, seconds] = timeStr.split(':');
+        const utcValue = Date.UTC(year, month, day, hours, minutes, seconds);
+
+        // Return a new object with the processed date and time
+        return utcValue;
+      });
+      //Joining the converted timearr to temp,press,humid arrays
+      const temptime = processedTime.map((utcValue, index) => [utcValue, temparr[index]]);
+      const presstime = processedTime.map((utcValue, index) => [utcValue, pressarr[index]]);
+      const humidtime = processedTime.map((utcValue, index) => [utcValue, humidarr[index]]);
+
+      // Update Highcharts
+      tempChart.series[0].setData(temptime);
+      pressChart.series[0].setData(presstime);
+      humidChart.series[0].setData(humidtime);
+
+    });
+}
+
 function fetchData() {
   // Retrieving json array from query.php
-  fetch("https://og09ieq.ngrok.io/query.php") 
+  fetch("http://og09ieq.ngrok.io/query.php") 
     .then((res) => res.json())
     .then((data) => {
 
@@ -163,10 +174,10 @@ function fetchData() {
 
 window.addEventListener('load', function () {
   // Your document is loaded.
+  fetchTable();
   fetchData();
-  var fetchInterval = 4000; // 2 seconds.
+  var fetchInterval = 10000; // 2 seconds.
   setInterval(fetchData, fetchInterval);
-
 
   const tempButtons = document.querySelectorAll('.temp-graph-btn');
   tempButtons.forEach(tempButton => {

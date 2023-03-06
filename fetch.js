@@ -1,6 +1,6 @@
 function fetchData() {
   // Retrieving json array from query.php
-    fetch("https://og09ieq.ngrok.io/query.php") 
+    fetch("http://og09ieq.ngrok.io/query.php") 
       .then((res) => res.json())
       .then((data) => {
 
@@ -63,6 +63,6 @@ function fetchData() {
   window.addEventListener('load', function () {
     // Your document is loaded.
     fetchData();
-    var fetchInterval = 2000; // 2 seconds.
+    var fetchInterval = 4000; // 2 seconds.
     setInterval(fetchData, fetchInterval);
   });

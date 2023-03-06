@@ -536,106 +536,18 @@ Progress Bar
     }
 }
 
-@media screen and (min-width:992px) {
-    .navbar {
-        width: 50%;
-    }
-    .container {
-        width: 50%;
-    }
-    .card {
-        flex-direction: row;
-    }
-    .temperature,
-    .pressure,
-    .humidity {
-        width: 50%;
-    }
-
-    .rating {
-        align-self: flex-start;
-        margin-bottom: 0;
-    }
-
-    tr {
-        display: table-row;
-        visibility: collapse;
-    }
-
-    .temperature:hover,
-    .pressure:hover,
-    .humidity:hover {
-        width: 90%;
-    }
-
-    .temperature:hover .card-info,
-    .pressure:hover .card-info,
-    .humidity:hover .card-info {
-        margin-right: 1rem;
-        transition: var(--transitionslow);
-    }
-
-    .temperature.active .card-info,
-    .pressure.active .card-info,
-    .humidity.active .card-info {
-        margin-right: 1rem;
-        transition: var(--transitionslow);
-    }
-
-    .temperature:hover .rating,
-    .pressure:hover .rating,
-    .humidity:hover .rating {
-        display: block;
-        flex-basis: 100%;
-        animation: fade-animation 1s forwards;
-    }
-    .temperature.active .rating,
-    .pressure.active .rating,
-    .humidity.active .rating {
-        animation: fade-animation 1s forwards;
-    }
-    .temperature:hover tr,
-    .pressure:hover tr,
-    .humidity:hover tr {
-        visibility: visible;
-        /*visiblity is set to visible when both hovering and clicking
-        but display is only set to table-row when clicking because desktop display is set to table-row to perserve transition*/
-        opacity: 100%;
-        transition: var(--transitionslow);
-        transition-delay: 0.6s;
-    }
-    .progress-container{
-        margin-top: 1.5rem;
-    }
-    .progress-bar {
-        margin-bottom: 0;
-    }
-
-    .temperature:hover .progress-container,
-    .temperature.active .progress-container,
-    .pressure:hover .progress-container,
-    .pressure.active .progress-container,
-    .humidity:hover .progress-container,
-    .humidity.active .progress-container {
-        width: 70%;
-    }
-}
-
 /*
 =============== 
 Graphs
 ===============
 */
 .graphs {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-around;
+    display: block;
     width: 100vw;
     height: calc(50vh - (5rem));
 }
 .graph-container{
-    width: 45%;
+    width: 100%;
     height: 100%;
     margin-bottom: 2rem;
 }
@@ -668,4 +580,120 @@ Graphs
 .press-graph-btn.active,
 .humid-graph-btn.active {
     background-color: var(--grey-300);
+}
+
+/*
+=============== 
+Media Query
+===============
+*/
+@media screen and (min-width:992px) {
+  .navbar {
+    width: 50%;
+  }
+
+  .container {
+    width: 50%;
+  }
+
+  .card {
+    flex-direction: row;
+  }
+
+  .temperature,
+  .pressure,
+  .humidity {
+    width: 50%;
+  }
+
+  .rating {
+    align-self: flex-start;
+    margin-bottom: 0;
+  }
+
+  tr {
+    display: table-row;
+    visibility: collapse;
+  }
+
+  .temperature:hover,
+  .pressure:hover,
+  .humidity:hover {
+    width: 90%;
+  }
+
+  .temperature:hover .card-info,
+  .pressure:hover .card-info,
+  .humidity:hover .card-info {
+    margin-right: 1rem;
+    transition: var(--transitionslow);
+  }
+
+  .temperature.active .card-info,
+  .pressure.active .card-info,
+  .humidity.active .card-info {
+    margin-right: 1rem;
+    transition: var(--transitionslow);
+  }
+
+  .temperature:hover .rating,
+  .pressure:hover .rating,
+  .humidity:hover .rating {
+    display: block;
+    flex-basis: 100%;
+    animation: fade-animation 1s forwards;
+  }
+
+  .temperature.active .rating,
+  .pressure.active .rating,
+  .humidity.active .rating {
+    animation: fade-animation 1s forwards;
+  }
+
+  .temperature:hover tr,
+  .pressure:hover tr,
+  .humidity:hover tr {
+    visibility: visible;
+    /*visiblity is set to visible when both hovering and clicking
+        but display is only set to table-row when clicking because desktop display is set to table-row to perserve transition*/
+    opacity: 100%;
+    transition: var(--transitionslow);
+    transition-delay: 0.6s;
+  }
+
+  .progress-container {
+    margin-top: 1.5rem;
+  }
+
+  .progress-bar {
+    margin-bottom: 0;
+  }
+
+  .temperature:hover .progress-container,
+  .temperature.active .progress-container,
+  .pressure:hover .progress-container,
+  .pressure.active .progress-container,
+  .humidity:hover .progress-container,
+  .humidity.active .progress-container {
+    width: 70%;
+  }
+
+  .graphs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    width: 100vw;
+    height: calc(50vh - (5rem));
+  }
+
+  .graph-container {
+    width: 45%;
+  }
+
+  .graph {
+    width: 100%;
+    height: 100%;
+  }
 }
