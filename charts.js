@@ -1,92 +1,96 @@
 const tempChart = Highcharts.chart('temp-graph', {
   chart: {
-    backgroundColor: '#f1f5f9'
+    backgroundColor: '#f1f5f9',
+    panning: true,
+    panKey: 'shift'
   },
   title: {
     text: 'Temperature'
   },
   yAxis: {
-    min: 15,
-    max: 30,
     title: {
       text: 'Temperature'
     }
   },
   xAxis: {
     type: 'datetime',
-    tickInterval: 15 * 60 * 1000,
+    tickInterval: 30 * 60 * 1000,
   },
 
   legend: {
     enabled: false
   },
   series: [{
-    name: 'time'
+    color: '#3c3c3c',
+    name: 'temp'
   }],
 
 });
 
 const pressChart = Highcharts.chart('press-graph', {
   chart: {
-    backgroundColor: '#f1f5f9'
+    backgroundColor: '#f1f5f9',
+    panning: true,
+    panKey: 'shift'
   },
   title: {
     text: 'Pressure'
   },
   yAxis: {
-    min: 950,
-    max: 1050,
     title: {
       text: 'Pressure'
     }
   },
   xAxis: {
     type: 'datetime',
-    tickInterval: 15 * 60 * 1000,
+    tickInterval: 30 * 60 * 1000
   },
 
   legend: {
     enabled: false
   },
   series: [{
-    name: 'time'
+    color: '#3c3c3c',
+    name: 'pressure'
   }],
 });
 
 const humidChart = Highcharts.chart('humid-graph', {
   chart: {
-    backgroundColor: '#f1f5f9'
+    backgroundColor: '#f1f5f9',
+    panning: true,
+    panKey: 'shift'
   },
   title: {
     text: 'Humidity'
   },
   yAxis: {
-    min: 0,
-    max: 100,
     title: {
       text: 'Humidity'
     }
   },
   xAxis: {
     type: 'datetime',
-    tickInterval: 15 * 60 * 1000,
+    tickInterval: 30 * 60 * 1000,
   },
 
   legend: {
     enabled: false
   },
   series: [{
-    name: 'time'
+    color: '#3c3c3c',
+    name: 'humidity'
   }],
 
 });
 
-let tempmin = 0;
-let tempmax = 23;
-let pressmin = 0;
-let pressmax = 23;
-let humidmin = 0;
-let humidmax = 23;
+let tempmin = 0; let tempmax = 23;
+let pressmin = 0; let pressmax = 23;
+let humidmin = 0; let humidmax = 23;
+
+let tempminY = 15; let tempmaxY = 30;
+let pressminY = 950; let pressmaxY = 1050;
+let humidminY = 0; let humidmaxY = 100;
 
 function fetchTable(){
   fetch('http://og09ieq.ngrok.io/fullquery.php')
@@ -120,6 +124,8 @@ function fetchTable(){
     });
 }
 
+let extremesSet = false;
+
 function fetchData() {
   // Retrieving json array from query.php
   fetch("http://og09ieq.ngrok.io/query.php") 
@@ -132,42 +138,66 @@ function fetchData() {
       month -= 1;
       const [hours, minutes, seconds] = timeStr.split(':');
       const utcValue = Date.UTC(year, month, day, hours, minutes, seconds);
-      tempChart.xAxis[0].setExtremes(Date.UTC(year, month, day, tempmin, 0, 0), Date.UTC(year, month, day, tempmax, 59, 59));
+
+      // setting extremes once the page loads only
+      if (!extremesSet) {
+        tempChart.xAxis[0].setExtremes(Date.UTC(year, month, day, tempmin, 0, 0), Date.UTC(year, month, day, tempmax, 59, 59));
+        tempChart.yAxis[0].setExtremes(tempminY, tempmaxY);
+        pressChart.xAxis[0].setExtremes(Date.UTC(year, month, day, pressmin, 0, 0), Date.UTC(year, month, day, pressmax, 59, 59));
+        pressChart.yAxis[0].setExtremes(pressminY, pressmaxY);
+        humidChart.xAxis[0].setExtremes(Date.UTC(year, month, day, humidmin, 0, 0), Date.UTC(year, month, day, humidmax, 59, 59));
+        humidChart.yAxis[0].setExtremes(humidminY, humidmaxY);
+        extremesSet = true;
+      }
+
+      // Adding points
       tempChart.series[0].addPoint([utcValue, +data.temp_value]);
-      pressChart.xAxis[0].setExtremes(Date.UTC(year, month, day, pressmin, 0, 0), Date.UTC(year, month, day, pressmax, 59, 59));
       pressChart.series[0].addPoint([utcValue, +data.pressure_value]);
-      humidChart.xAxis[0].setExtremes(Date.UTC(year, month, day, humidmin, 0, 0), Date.UTC(year, month, day, humidmax, 59, 59));
       humidChart.series[0].addPoint([utcValue, +data.humid_value]);
 
       document.getElementById('temp-day-btn').addEventListener("click", function(){
-        tempmin = 0;
-        tempmax = 23;
+        tempmin = 0; tempminY = 15;
+        tempmax = 23; tempmaxY = 30;
         tempChart.xAxis[0].setExtremes(Date.UTC(year, month, day, tempmin, 0, 0), Date.UTC(year, month, day, tempmax, 59, 59));
+        tempChart.yAxis[0].setExtremes(tempminY, tempmaxY);
       });
       document.getElementById('temp-hour-btn').addEventListener("click", function(){
-        tempmin = hours;
-        tempmax = hours;
+        tempmin = hours; tempminY = null;
+        tempmax = hours; tempmaxY = null;
         tempChart.xAxis[0].setExtremes(Date.UTC(year, month, day, tempmin, 0, 0), Date.UTC(year, month, day, tempmax, 59, 59));
+        tempChart.yAxis[0].setExtremes(tempminY, tempmaxY);
       });
       document.getElementById('press-day-btn').addEventListener("click", function(){
         pressmin = 0;
         pressmax = 23;
+        pressminY = 950;
+        pressmaxY = 1050;
         pressChart.xAxis[0].setExtremes(Date.UTC(year, month, day, pressmin, 0, 0), Date.UTC(year, month, day, pressmax, 59, 59));
+        pressChart.yAxis[0].setExtremes(pressminY, pressmaxY);
       });
       document.getElementById('press-hour-btn').addEventListener("click", function(){
         pressmin = hours;
         pressmax = hours;
+        pressminY = null;
+        pressmaxY = null;
         pressChart.xAxis[0].setExtremes(Date.UTC(year, month, day, pressmin, 0, 0), Date.UTC(year, month, day, pressmax, 59, 59));
+        pressChart.yAxis[0].setExtremes(pressminY, pressmaxY);
       });
       document.getElementById('humid-day-btn').addEventListener("click", function(){
         humidmin = 0;
         humidmax = 23;
+        humidminY = 0;
+        humidmaxY = 100;
         humidChart.xAxis[0].setExtremes(Date.UTC(year, month, day, humidmin, 0, 0), Date.UTC(year, month, day, humidmax, 59, 59));
+        humidChart.yAxis[0].setExtremes(humidminY, humidmaxY);
       });
       document.getElementById('humid-hour-btn').addEventListener("click", function(){
         humidmin = hours;
         humidmax = hours;
+        humidminY = null;
+        humidmaxY = null;
         humidChart.xAxis[0].setExtremes(Date.UTC(year, month, day, humidmin, 0, 0), Date.UTC(year, month, day, humidmax, 59, 59));
+        humidChart.yAxis[0].setExtremes(humidminY, humidmaxY);
       });
     });
 }
