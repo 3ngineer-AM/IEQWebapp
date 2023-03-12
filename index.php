@@ -35,10 +35,10 @@
             <a href="graphs.php" class="nav-link">graphs</a>
           </div>
           <div class="links">
-            <button class="link-buttons" onclick="window.location.href ='index.php';">
+            <button class="link-buttons" onclick="window.location.href ='settings.php';">
               <i class="fa-solid fa-gear"></i>
             </button>
-            <a href="index.php" class="nav-link">settings</a>
+            <a href="settings.php" class="nav-link">settings</a>
           </div>
         </div>
       </div>

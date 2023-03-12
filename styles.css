@@ -144,6 +144,7 @@ ul {
 
 /* buttons */
 .btn {
+    pointer-events: auto;
     cursor: pointer;
     color: var(--black);
     background: var(--grey-200);
@@ -155,6 +156,9 @@ ul {
     transition: var(--transitionfast);
     text-transform: capitalize;
     display: inline-block;
+}
+.btn:hover {
+    background: var(--grey-400);
 }
 
 .btn-hipster {
@@ -581,6 +585,13 @@ Graphs
 .humid-graph-btn.active {
     background-color: var(--grey-300);
 }
+
+/*
+=============== 
+Settings
+===============
+*/
+
 
 /*
 =============== 
