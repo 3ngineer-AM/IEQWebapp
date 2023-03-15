@@ -45,11 +45,15 @@
     </nav>
     <!-- end of nav -->
 
-    <!-- Start of DC -->
+    
     <div class="container">
+      <!-- Start of wifi -->
+      <div class="wifi-header">
+        <h5>WIFI connectivity</h5>
+      </div>
       <button type="button" class="btn" id="dc-btn">disconnect</button>
+      <!-- end of wifi -->
     </div>
-    <!-- end of DC -->
 
     <!-- Javascript -->
     <script src="settings.js"></script>
