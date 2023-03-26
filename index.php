@@ -65,7 +65,7 @@
           <table>
             <tbody>
               <tr>
-                <td>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste veniam sed eos temporibus quisquam similique tempora aspernatur provident ab animi nisi reiciendis doloremque quo, excepturi nesciunt mollitia non in aut.</td>
+                <td id='temp-text'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste veniam sed eos temporibus quisquam similique tempora aspernatur provident ab animi nisi reiciendis doloremque quo, excepturi nesciunt mollitia non in aut.</td>
               </tr>
             </tbody>
           </table>
@@ -88,7 +88,7 @@
           <table>
             <tbody>
               <tr>
-                <td>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum a quidem et explicabo sint error, optio, quam eius dolorem autem vitae atque odit provident harum! Error saepe cumque sunt adipisci?</td>
+                <td id='press-text'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum a quidem et explicabo sint error, optio, quam eius dolorem autem vitae atque odit provident harum! Error saepe cumque sunt adipisci?</td>
               </tr>
             </tbody>
           </table>    
@@ -111,7 +111,7 @@
           <table>
             <tbody>
               <tr>
-                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, temporibus! Eum alias commodi aspernatur explicabo similique perferendis dicta natus labore qui est laboriosam voluptate provident saepe, nemo nisi dolores fugiat.</td>
+                <td id='humid-text'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, temporibus! Eum alias commodi aspernatur explicabo similique perferendis dicta natus labore qui est laboriosam voluptate provident saepe, nemo nisi dolores fugiat.</td>
               </tr>
             </tbody>
           </table>

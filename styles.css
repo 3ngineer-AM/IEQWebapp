@@ -43,7 +43,9 @@ html {
     --red-dark: #842029;
     --green-light: #d1e7dd;
     --green-dark: #0f5132;
-    --bar-color: #AD1F2D;
+    --tempbar-color: #AD1F2D;
+    --pressbar-color: #AD1F2D;
+    --humidbar-color: #AD1F2D;
     --red-med: #AD1F2D;
     --green-med: #247F36;
     --yellow-med: #FFB833;
@@ -415,8 +417,16 @@ Measurands
 .press-warning,
 .humid-warning {
     pointer-events: none;
-    color: var(--bar-color);
     transform: translate(0.7rem, 0.7rem);
+}
+.temp-warning{
+    color: var(--tempbar-color);
+}
+.press-warning {
+    color: var(--pressbar-color);
+}
+.humid-warning {
+    color: var(--humidbar-color);
 }
 .card {
     display: flex;
@@ -522,21 +532,59 @@ Progress Bar
     width: 100%;
 }
 
-.progress-bar {
+.temperature .progress-bar {
     height: 100%;
     border-radius: 1.5rem;
     background-color: var(--red-med);
-    animation: progress-animation 2s forwards;
+    animation: tempprogress-animation 2s forwards;
 }
 
-@keyframes progress-animation {
+@keyframes tempprogress-animation {
     0% {
         width: 0%;
         background-color: var(--red-med);
     }
     100% {
         width: calc(var(--temp_rating)*10%);
-        background-color: var(--bar-color);
+        background-color: var(--tempbar-color);
+    }
+}
+
+.pressure .progress-bar {
+    height: 100%;
+    border-radius: 1.5rem;
+    background-color: var(--red-med);
+    animation: pressprogress-animation 2s forwards;
+}
+
+@keyframes pressprogress-animation {
+    0% {
+        width: 0%;
+        background-color: var(--red-med);
+    }
+
+    100% {
+        width: calc(var(--press_rating)*10%);
+        background-color: var(--pressbar-color);
+    }
+}
+
+.humidity .progress-bar {
+    height: 100%;
+    border-radius: 1.5rem;
+    background-color: var(--red-med);
+    animation: humidprogress-animation 2s forwards;
+}
+
+@keyframes humidprogress-animation {
+    0% {
+        width: 0%;
+        background-color: var(--red-med);
+    }
+
+    100% {
+        width: calc(var(--humid_rating)*10%);
+        background-color: var(--humidbar-color);
     }
 }
 
