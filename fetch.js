@@ -61,7 +61,7 @@ function fetchData() {
           temp_warning.forEach((temp_warning) => {
             temp_warning.style.visibility = "visible"; 
           });
-          tempText.textContent = 'Room pressure is greatly out of range. Typical temperature range of a surgery room is 18-20 degrees';
+          tempText.textContent = 'Room temperature is greatly out of range. Typical temperature range of a surgery room is 18-20 degrees';
         }
 
         // Changing press card properties based on rating
